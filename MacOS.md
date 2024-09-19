@@ -62,9 +62,9 @@ UIKit并不是iOS平台专用的。它主要用于iOS，但也被扩展到其他
 
   
 
-import SwiftUI
 
-  
+```swift
+import SwiftUI
 
 struct ContentView: View {
 
@@ -114,8 +114,12 @@ struct ContentView: View {
 
 }
 
+```
+
   
 
+
+```swift
 @main
 
 struct YourAppNameApp: App {
@@ -131,6 +135,8 @@ struct YourAppNameApp: App {
     }
 
 }
+```
+
 
 **解释**
 

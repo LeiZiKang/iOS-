@@ -25,8 +25,17 @@ https://zhuanlan.zhihu.com/p/62725375
 
 ---
 
-# 5月1日 API申报
+# APPStore新规 privacyInfo
 
+要求开发者报告使用的SDK有没有收集用户信息
+
+编写xcprivacy：
+https://juejin.cn/post/7360928627631931418
+
+隐私清单生成：
+https://wemakeapps.net/manifest-maker
+
+介绍：
 https://zhuanlan.zhihu.com/p/649662474
 
 
@@ -35,3 +44,15 @@ https://zhuanlan.zhihu.com/p/649662474
 # Xcode上传appStore时要求验证
 
 退出Xcode重新登陆即可
+
+
+---
+# ITMS-90714
+Xcode打包上传到appStoreConnect后显示：
+ITMS-90714:Invalid binary- The app containsone or more corrupted binaries. Please rebuildthe app and resubmit.
+
+移除 `Other Linker Flag / -Xlinker -interposable` 
+
+来源：
+https://forums.developer.apple.com/forums/thread/751400
+

@@ -3379,3 +3379,11 @@ isInputActive = false
 
 
 ---
+
+# AVPlayer停止播放
+
+在iOS中停止直播AVPlayer可以通过以下步骤实现：
+
+1. 获取AVPlayer的当前播放状态：可以通过观察AVPlayer的timeControlStatus属性来获取当前播放状态。如果timeControlStatus等于.paused，则表示AVPlayer当前处于暂停状态。
+2. 暂停播放：调用AVPlayer的pause方法来暂停播放。这将暂停视频的播放并保留当前播放进度。
+3. 停止播放：调用AVPlayer的seek(to:)方法将视频播放进度设置为0，然后调用pause方法暂停播放。这将停止视频的播放并将播放进度重置为起始位置

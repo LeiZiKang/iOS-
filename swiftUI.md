@@ -1107,3 +1107,55 @@ SwiftUI的预览功能和Flutter的热重载功能在某些方面是相似的，
 总的来说，虽然两者都提供了实时反馈，但SwiftUI的预览功能更侧重于UI设计，而Flutter的热重载功能更侧重于整体的开发过程。
 
 ---
+# 错误与BUG
+
+`Invalid frame dimension (negative or non-finite).`
+https://blog.csdn.net/tiantang_1986/article/details/135454323
+
+
+`Trying to pop to a missing destination - SwiftUI/NavigationBridge_PhoneTV.swift:213 - please file a bug report.`
+https://stackoverflow.com/questions/64124502/swiftui-navigationview-trying-to-pop-to-missing-destination-monoceros
+
+# 隐藏TabBar
+
+https://stackoverflow.com/questions/58444689/swiftui-hide-tabbar-in-subview
+
+```swift
+UITabBar.appearance().isHidden = true
+```
+
+---
+# List放置在ScrollView中不显示
+
+您将滚动视图（`List`）嵌入到另一个滚动视图（`ScrollView`）中，这总是会有一些固有的困难（滚动可能会产生奇怪的UI/UX后果）。
+
+因为`CityDetailCategoryView`除了它的头之外没有任何固有的高度（其余的可以折叠成`ScrollView`），所以它折叠为零。
+
+您可以使用`frame`为它设置一个高度，如本简化示例所示（如果删除`frame`调用，它的行为与您的相同）：
+
+```
+var items = [1,2,3,4,5,6]
+
+struct ContentView: View {
+    var body: some View {
+        ScrollView {
+            ForEach(items, id: \.self) { item in
+                Text("item")
+            }
+            List {
+                ForEach(items, id: \.self) { item in
+                    Text("item")
+                }
+            }.frame(height: 200) //<-- here
+            Text("last item")
+        }
+    }
+}
+```
+
+尽管如此，我认为你仍然会冒着有趣的滚动行为的风险。
+
+我的建议是重新构建您的视图，这样您就有一个列表或滚动视图来显示所有内容。
+
+来源：
+https://www.5axxw.com/questions/content/st6okj
