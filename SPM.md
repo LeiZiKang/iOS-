@@ -81,3 +81,46 @@ let package = Package(
 ### 总结
 
 最常见和推荐的方法是通过创建一个伞模块（Umbrella Module），在其中统一导入并重新导出所有需要的模块。这样在你的主项目中只需要导入这个伞模块即可。这种方法简单且有效，能够很好地管理和组织你的依赖。
+
+---
+\
+# 指定Swift版本
+
+在使用Swift Package Manager时，Swift的版本是通过在你的包的Package.swift文件中指定swiftLanguageVersions属性来设置的。这个属性允许你指定你的包能够与哪些版本的Swift编译器兼容。
+
+下面是一个Package.swift文件的示例，其中设置了Swift语言的版本：
+
+```swift
+// swift-tools-version:5.3
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+ 
+import PackageDescription
+ 
+let package = Package(
+    name: "MyPackage",
+    products: [
+        // Define your products here.
+    ],
+    dependencies: [
+        // Dependencies declare other packages that this package depends on.
+    ],
+    targets: [
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        .target(
+            name: "MyTarget",
+            dependencies: [],
+            swiftSettings: [.version("5")] // 指定Swift版本为5
+        ),
+        .testTarget(
+            name: "MyTargetTests",
+            dependencies: ["MyTarget"],
+            swiftSettings: [.version("5")] // 指定Swift版本为5
+        )
+    ]
+)
+```
+
+在上面的代码中，swiftSettings的.version选项被用来指定Swift的版本。在这个例子中，我们指定了版本为5。你可以根据需要更改版本号。注意，指定的版本需要与你的包能够兼容。
+
+请确保你的swift-tools-version声明与你在Package.swift文件中指定的Swift版本相匹配。这行声明告诉Swift Package Manager你的包需要的最低Swift工具版本。

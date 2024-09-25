@@ -1385,6 +1385,16 @@ print(myBike.description())  // 输出: Bicycle: Giant, 21 gears
 
 在这个示例中，`Vehicle` 枚举不仅定义了不同类型的车辆，还为每个车辆类型关联了不同的数据，并提供了一个方法来描述车辆的信息。
 
+### 枚举的嵌套
+
+‌**[Swift](https://www.baidu.com/s?sa=re_dqa_generate&wd=Swift&rsv_pq=9a8dc5a6004fda67&oq=swift%E7%9A%84enum%E5%B5%8C%E5%A5%97enum%2C%E5%AD%90enum%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BAcase%E4%BD%BF%E7%94%A8%E5%90%97%3F&rsv_t=bfa57chFFGvZFGAZ0TQwpnVPsQFq7sCVYfCZW75HMiu60VEf4SXU9HTLbS8&tn=baidu&ie=utf-8)的[enum](https://www.baidu.com/s?sa=re_dqa_generate&wd=enum&rsv_pq=9a8dc5a6004fda67&oq=swift%E7%9A%84enum%E5%B5%8C%E5%A5%97enum%2C%E5%AD%90enum%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BAcase%E4%BD%BF%E7%94%A8%E5%90%97%3F&rsv_t=bfa57chFFGvZFGAZ0TQwpnVPsQFq7sCVYfCZW75HMiu60VEf4SXU9HTLbS8&tn=baidu&ie=utf-8)支持嵌套enum，子enum可以作为case使用。**‌
+
+在Swift中，枚举（enum）是一种强大的数据类型，它允许你定义一组相关的值。Swift的枚举不仅可以包含基本的值类型（如整数、浮点数、字符串等），还可以包含关联值（associated values），这使得枚举能够表示更复杂的数据结构。此外，Swift还支持嵌套枚举，即在一个枚举类型内部定义另一个枚举类型。这种嵌套结构允许你创建更复杂的枚举层次结构，以适应复杂的业务需求。
+
+子enum作为case使用时，可以定义在父enum的某个case中，或者作为独立的枚举类型被其他枚举引用。这种嵌套和引用机制使得Swift的枚举系统非常灵活和强大，能够应对各种复杂的数据表示需求。例如，你可以定义一个表示颜色的枚举，然后在其中嵌套一个表示颜色的深浅或类型的子枚举，或者在不同的枚举之间共享相同的子枚举定义，以避免代码重复和提高代码的可维护性。
+
+总的来说，Swift的enum支持嵌套enum，子enum可以作为case使用，这种特性使得Swift的枚举系统更加灵活和强大，能够适应各种复杂的数据表示需求。
+
 ### 总结
 
 Swift 中的 `enum` 是一种灵活且功能强大的数据类型，它不仅可以定义一组相关的值，还可以关联额外的数据，包含方法和计算属性。它的内存布局由编译器优化，以确保高效的存储和访问。通过使用枚举，开发者可以创建更加清晰和结构化的代码。
